@@ -5,12 +5,79 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enlace Reuniones</title>
-    <link rel="stylesheet" href="./styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin: 0;
+            padding: 1rem;
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: #3498db;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 480px) {
+            .content {
+                padding: 1.5rem;
+                width: 95%;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="content">
         <a href="https://jworg.zoom.us/j/86493019033?pwd=bWppWnVpTHYxbHF3OW5SbTFWaW5rQT09">
-            <h1>Reunión Viernes y Domingos</h1>
+            <h1>Reunión Martes y Sábados</h1>
         </a>
     </div>
 </body>
