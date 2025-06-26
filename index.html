@@ -23,6 +23,13 @@
             padding: 20px;
         }
 
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+        }
+
         .card {
             background: rgba(255, 255, 255, 0.95);
             padding: 2.5rem;
@@ -128,15 +135,27 @@
     </style>
 </head>
 <body>
-    <a href="https://jworg.zoom.us/j/87106216703?pwd=YSt4WFBYMjF0ZEdLSDQrVlRrNVd2UT09">
-        <div class="card">
-            <div class="link-wrapper">
-                <h1>Reunión Miércoles y Sábados</h1>
-                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                </svg>
+    <div class="container">
+        <a href="https://jworg.zoom.us/j/87106216703?pwd=YSt4WFBYMjF0ZEdLSDQrVlRrNVd2UT09">
+            <div class="card">
+                <div class="link-wrapper">
+                    <h1>Reunión Miércoles y Sábados</h1>
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </div>
             </div>
-        </div>
-    </a>
+        </a>
+        <a href="https://stream.jw.org/1737-5929-6585-3927">
+            <div class="card">
+                <div class="link-wrapper">
+                    <h1>Asamblea Regional</h1>
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </div>
+            </div>
+        </a>
+    </div>
 </body>
 </html>
