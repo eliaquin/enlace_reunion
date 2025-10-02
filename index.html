@@ -1,313 +1,522 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Enlaces</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        :root {
-            --background: #F9FAFB;
-            --surface: #FFFFFF;
-            --primary: #3B82F6;
-            --primary-hover: #2563EB;
-            --text-primary: #1F2937;
-            --text-secondary: #6B7280;
-            --border: #E5E7EB;
-            --shadow: rgba(0, 0, 0, 0.05);
+      :root {
+        --background: #f9fafb;
+        --surface: #ffffff;
+        --primary: #3b82f6;
+        --primary-hover: #2563eb;
+        --text-primary: #1f2937;
+        --text-secondary: #6b7280;
+        --border: #e5e7eb;
+        --shadow: rgba(0, 0, 0, 0.05);
+        --error: #ef4444;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--background);
+        color: var(--text-primary);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 2rem;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow: hidden;
+      }
+
+      .main-container {
+        width: 100%;
+        max-width: 560px;
+        animation: fadeIn 0.5s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
+      }
 
+      .title-container {
+        text-align: center;
+        margin-bottom: 2.5rem;
+      }
+
+      .main-title {
+        font-size: 2.25rem;
+        font-weight: 600;
+        letter-spacing: -0.025em;
+      }
+
+      .subtitle {
+        font-size: 1.125rem;
+        color: var(--text-secondary);
+        margin-top: 0.5rem;
+      }
+
+      .links-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        letter-spacing: -0.01em;
+      }
+
+      .section-description {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
+      }
+
+      .assembly-section {
+        margin-top: 2.5rem;
+      }
+
+      .assembly-links {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+
+      .link-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.5rem;
+        background-color: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 0.75rem;
+        text-decoration: none;
+        color: var(--text-primary);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 1px 2px 0 var(--shadow);
+      }
+
+      .link-card:focus-visible {
+        outline: 4px solid rgba(59, 130, 246, 0.4);
+        outline-offset: 4px;
+      }
+
+      .link-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px 0 var(--shadow);
+        border-color: var(--primary);
+      }
+
+      .link-content h2 {
+        font-size: 1.125rem;
+        font-weight: 500;
+      }
+
+      .link-content p {
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+        margin-top: 0.35rem;
+      }
+
+      .link-card.assembly-card {
+        background-color: var(--primary);
+        border-color: var(--primary);
+        color: #ffffff;
+        padding: 1.75rem;
+        font-size: 1.125rem;
+      }
+
+      .link-card.assembly-card .link-content h2 {
+        font-size: 1.35rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      .link-card.assembly-card .link-content p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.05rem;
+        font-weight: 500;
+      }
+
+      .link-card.assembly-card .link-icon {
+        color: #ffffff;
+        width: 1.75rem;
+        height: 1.75rem;
+      }
+
+      .link-card.assembly-card:hover {
+        background-color: var(--primary-hover);
+        border-color: var(--primary-hover);
+        box-shadow: 0 6px 16px 0 rgba(59, 130, 246, 0.25);
+      }
+
+      .link-card.assembly-card:focus-visible {
+        outline-color: rgba(255, 255, 255, 0.7);
+      }
+
+      .link-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        color: var(--text-secondary);
+        transition: color 0.2s ease, transform 0.2s ease;
+      }
+
+      .link-card:hover .link-icon {
+        color: var(--primary);
+        transform: translateX(3px);
+      }
+
+      @media (max-width: 640px) {
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--background);
-            color: var(--text-primary);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 2rem;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        .main-container {
-            width: 100%;
-            max-width: 560px;
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .title-container {
-            text-align: center;
-            margin-bottom: 2.5rem;
+          padding: 1rem;
         }
 
         .main-title {
-            font-size: 2.25rem;
-            font-weight: 600;
-            letter-spacing: -0.025em;
+          font-size: 1.875rem;
         }
 
         .subtitle {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            margin-top: 0.5rem;
-        }
-
-        .links-container {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            letter-spacing: -0.01em;
-        }
-
-        .section-description {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.5;
-        }
-
-        .assembly-section {
-            margin-top: 2.5rem;
-        }
-
-        .assembly-links {
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
+          font-size: 1rem;
         }
 
         .link-card {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.5rem;
-            background-color: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 0.75rem;
-            text-decoration: none;
-            color: var(--text-primary);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 1px 2px 0 var(--shadow);
+          padding: 1.25rem;
         }
 
-        .link-card:focus-visible {
-            outline: 4px solid rgba(59, 130, 246, 0.4);
-            outline-offset: 4px;
+        .section-title {
+          font-size: 1.35rem;
         }
 
-        .link-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px 0 var(--shadow);
-            border-color: var(--primary);
-        }
-
-        .link-content h2 {
-            font-size: 1.125rem;
-            font-weight: 500;
-        }
-
-        .link-content p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            margin-top: 0.35rem;
+        .assembly-links {
+          gap: 1rem;
         }
 
         .link-card.assembly-card {
-            background-color: var(--primary);
-            border-color: var(--primary);
-            color: #FFFFFF;
-            padding: 1.75rem;
-            font-size: 1.125rem;
+          padding: 1.5rem;
+          font-size: 1.05rem;
         }
 
         .link-card.assembly-card .link-content h2 {
-            font-size: 1.35rem;
-            font-weight: 600;
-            letter-spacing: -0.01em;
+          font-size: 1.25rem;
         }
+      }
 
-        .link-card.assembly-card .link-content p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.05rem;
-            font-weight: 500;
-        }
+      .password-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--background);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        transition: opacity 0.3s ease;
+      }
 
-        .link-card.assembly-card .link-icon {
-            color: #FFFFFF;
-            width: 1.75rem;
-            height: 1.75rem;
-        }
+      .password-form-card {
+        background-color: var(--surface);
+        padding: 2.5rem;
+        border-radius: 0.75rem;
+        box-shadow: 0 10px 30px var(--shadow);
+        text-align: center;
+        max-width: 400px;
+        width: 90%;
+      }
 
-        .link-card.assembly-card:hover {
-            background-color: var(--primary-hover);
-            border-color: var(--primary-hover);
-            box-shadow: 0 6px 16px 0 rgba(59, 130, 246, 0.25);
-        }
+      .password-form-card h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--text-primary);
+      }
 
-        .link-card.assembly-card:focus-visible {
-            outline-color: rgba(255, 255, 255, 0.7);
-        }
+      .password-input {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid var(--border);
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        color: var(--text-primary);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
 
-        .link-icon {
-            width: 1.5rem;
-            height: 1.5rem;
-            color: var(--text-secondary);
-            transition: color 0.2s ease, transform 0.2s ease;
-        }
+      .password-input:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+      }
 
-        .link-card:hover .link-icon {
-            color: var(--primary);
-            transform: translateX(3px);
-        }
+      .password-input.error {
+        border-color: var(--error);
+      }
 
-        @media (max-width: 640px) {
-            body {
-                padding: 1rem;
-            }
+      .password-button {
+        background-color: var(--primary);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+        width: 100%;
+      }
 
-            .main-title {
-                font-size: 1.875rem;
-            }
+      .password-button:hover {
+        background-color: var(--primary-hover);
+      }
 
-            .subtitle {
-                font-size: 1rem;
-            }
+      .error-message {
+        color: var(--error);
+        font-size: 0.875rem;
+        margin-top: 0.5rem;
+        height: 1.25rem;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
 
-            .link-card {
-                padding: 1.25rem;
-            }
-
-            .section-title {
-                font-size: 1.35rem;
-            }
-
-            .assembly-links {
-                gap: 1rem;
-            }
-
-            .link-card.assembly-card {
-                padding: 1.5rem;
-                font-size: 1.05rem;
-            }
-
-            .link-card.assembly-card .link-content h2 {
-                font-size: 1.25rem;
-            }
-        }
+      .error-message.visible {
+        opacity: 1;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <main class="main-container">
-        <div class="title-container">
-            <h1 class="main-title">Enlaces</h1>
-            <p class="subtitle">Seleccione una opción para continuar</p>
-        </div>
+  <body>
+    <div class="password-overlay" id="passwordOverlay">
+      <div class="password-form-card">
+        <h2>Ingrese el código</h2>
+        <input
+          type="password"
+          id="passwordInput"
+          class="password-input"
+          placeholder="Código"
+        />
+        <p id="errorMessage" class="error-message"></p>
+        <button id="submitPassword" class="password-button">Acceder</button>
+      </div>
+    </div>
 
-        <div class="links-container">
-            <a href="https://jworg.zoom.us/j/87106216703?pwd=YSt4WFBYMjF0ZEdLSDQrVlRrNVd2UT09" class="link-card"
-                target="_blank" rel="noopener noreferrer">
-                <div class="link-content">
-                    <h2>Reunión Miércoles y Sábados</h2>
-                </div>
-                <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                    stroke-width="2" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-            </a>
-        </div>
+    <main class="main-container" id="mainContent" style="display: none">
+      <div class="title-container">
+        <h1 class="main-title">Enlaces</h1>
+        <p class="subtitle">Seleccione una opción para continuar</p>
+      </div>
 
-        <section class="assembly-section" aria-labelledby="assembly-title">
-            <h2 id="assembly-title" class="section-title">Asamblea de circuito</h2>
-            <p class="section-description">Seleccione el video de cada sesión.</p>
-            <div class="assembly-links" role="list">
-                <a role="listitem"
-                    href="https://nuevoshared.blob.core.windows.net/poyiyacontainer/Asamblea%20de%20circuito%20con%20representante%20de%20la%20sucursal%20No%20nos%20avergonzamos%20de%20las%20buenas%20noticias%20(2024-2025)_Ma%C3%B1ana%20(parte%201)_r720P.mp4?sp=r&st=2025-10-02T22:52:31Z&se=2025-10-10T07:07:31Z&spr=https&sv=2024-11-04&sr=b&sig=%2FxOilWN%2F1NSMop%2Fk8KJp31Wdfrn14d6KhtoGucLrST0%3D"
-                    class="link-card assembly-card" target="_blank" rel="noopener noreferrer"
-                    aria-label="Video de la asamblea, Mañana parte 1">
-                    <div class="link-content">
-                        <h2>Mañana parte 1</h2>
-                        <p>Ver sesión</p>
-                    </div>
-                    <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                        stroke-width="2" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                </a>
+      <div class="links-container">
+        <a
+          href="https://jworg.zoom.us/j/87106216703?pwd=YSt4WFBYMjF0ZEdLSDQrVlRrNVd2UT09"
+          class="link-card"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="link-content">
+            <h2>Reunión Miércoles y Sábados</h2>
+          </div>
+          <svg
+            class="link-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </a>
+      </div>
 
-                <a role="listitem"
-                    href="https://nuevoshared.blob.core.windows.net/poyiyacontainer/Asamblea%20de%20circuito%20con%20representante%20de%20la%20sucursal%20No%20nos%20avergonzamos%20de%20las%20buenas%20noticias%20(2024-2025)_Ma%C3%B1ana%20(parte%202)_r720P.mp4?sp=r&st=2025-10-02T22:55:22Z&se=2025-10-10T07:10:22Z&spr=https&sv=2024-11-04&sr=b&sig=QEmJcb9ADq5ubi1Qn5SCk7mLbRryNjwE%2BMUbbVMdhbY%3D"
-                    class="link-card assembly-card" target="_blank" rel="noopener noreferrer"
-                    aria-label="Video de la asamblea, Mañana parte 2">
-                    <div class="link-content">
-                        <h2>Mañana parte 2</h2>
-                        <p>Ver sesión</p>
-                    </div>
-                    <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                        stroke-width="2" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                </a>
-
-                <a role="listitem"
-                    href="https://nuevoshared.blob.core.windows.net/poyiyacontainer/Asamblea%20de%20circuito%20con%20representante%20de%20la%20sucursal%20No%20nos%20avergonzamos%20de%20las%20buenas%20noticias%20(2024-2025)_Tarde%20(parte%201)_r720P.mp4?sp=r&st=2025-10-02T22:57:51Z&se=2025-10-10T07:12:51Z&spr=https&sv=2024-11-04&sr=b&sig=g%2BDFPjK5Bhh%2FVWjxK2bRQd%2B1NIp%2ByoCdREx%2FXs%2BfSeI%3D"
-                    class="link-card assembly-card" target="_blank" rel="noopener noreferrer"
-                    aria-label="Video de la asamblea, Tarde parte 1">
-                    <div class="link-content">
-                        <h2>Tarde parte 1</h2>
-                        <p>Ver sesión</p>
-                    </div>
-                    <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                        stroke-width="2" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                </a>
-
-                <a role="listitem"
-                    href="https://nuevoshared.blob.core.windows.net/poyiyacontainer/Asamblea%20de%20circuito%20con%20representante%20de%20la%20sucursal%20No%20nos%20avergonzamos%20de%20las%20buenas%20noticias%20(2024-2025)_Tarde%20(parte%202)_r720P.mp4?sp=r&st=2025-10-02T22:57:01Z&se=2025-10-10T07:12:01Z&spr=https&sv=2024-11-04&sr=b&sig=qwiue9HcKEEoTqlcH4izfPSx9y3zbaPlh3BjaYE5Fx4%3D"
-                    class="link-card assembly-card" target="_blank" rel="noopener noreferrer"
-                    aria-label="Video de la asamblea, Tarde parte 2">
-                    <div class="link-content">
-                        <h2>Tarde parte 2</h2>
-                        <p>Ver sesión</p>
-                    </div>
-                    <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                        stroke-width="2" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                </a>
+      <section class="assembly-section" aria-labelledby="assembly-title">
+        <h2 id="assembly-title" class="section-title">Asamblea de circuito</h2>
+        <p class="section-description">Seleccione el video de cada sesión.</p>
+        <div class="assembly-links" role="list">
+          <a
+            role="listitem"
+            href="https://nuevoshared.blob.core.windows.net/poyiyacontainer/Asamblea%20de%20circuito%20con%20representante%20de%20la%20sucursal%20No%20nos%20avergonzamos%20de%20las%20buenas%20noticias%20(2024-2025)_Ma%C3%B1ana%20(parte%201)_r720P.mp4?sp=r&st=2025-10-02T22:52:31Z&se=2025-10-10T07:07:31Z&spr=https&sv=2024-11-04&sr=b&sig=%2FxOilWN%2F1NSMop%2Fk8KJp31Wdfrn14d6KhtoGucLrST0%3D"
+            class="link-card assembly-card"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Video de la asamblea, Mañana parte 1"
+          >
+            <div class="link-content">
+              <h2>Mañana parte 1</h2>
+              <p>Ver sesión</p>
             </div>
-        </section>
-    </main>
-</body>
+            <svg
+              class="link-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </a>
 
+          <a
+            role="listitem"
+            href="https://nuevoshared.blob.core.windows.net/poyiyacontainer/Asamblea%20de%20circuito%20con%20representante%20de%20la%20sucursal%20No%20nos%20avergonzamos%20de%20las%20buenas%20noticias%20(2024-2025)_Ma%C3%B1ana%20(parte%202)_r720P.mp4?sp=r&st=2025-10-02T22:55:22Z&se=2025-10-10T07:10:22Z&spr=https&sv=2024-11-04&sr=b&sig=QEmJcb9ADq5ubi1Qn5SCk7mLbRryNjwE%2BMUbbVMdhbY%3D"
+            class="link-card assembly-card"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Video de la asamblea, Mañana parte 2"
+          >
+            <div class="link-content">
+              <h2>Mañana parte 2</h2>
+              <p>Ver sesión</p>
+            </div>
+            <svg
+              class="link-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </a>
+
+          <a
+            role="listitem"
+            href="https://nuevoshared.blob.core.windows.net/poyiyacontainer/Asamblea%20de%20circuito%20con%20representante%20de%20la%20sucursal%20No%20nos%20avergonzamos%20de%20las%20buenas%20noticias%20(2024-2025)_Tarde%20(parte%201)_r720P.mp4?sp=r&st=2025-10-02T22:57:51Z&se=2025-10-10T07:12:51Z&spr=https&sv=2024-11-04&sr=b&sig=g%2BDFPjK5Bhh%2FVWjxK2bRQd%2B1NIp%2ByoCdREx%2FXs%2BfSeI%3D"
+            class="link-card assembly-card"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Video de la asamblea, Tarde parte 1"
+          >
+            <div class="link-content">
+              <h2>Tarde parte 1</h2>
+              <p>Ver sesión</p>
+            </div>
+            <svg
+              class="link-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </a>
+
+          <a
+            role="listitem"
+            href="https://nuevoshared.blob.core.windows.net/poyiyacontainer/Asamblea%20de%20circuito%20con%20representante%20de%20la%20sucursal%20No%20nos%20avergonzamos%20de%20las%20buenas%20noticias%20(2024-2025)_Tarde%20(parte%202)_r720P.mp4?sp=r&st=2025-10-02T22:57:01Z&se=2025-10-10T07:12:01Z&spr=https&sv=2024-11-04&sr=b&sig=qwiue9HcKEEoTqlcH4izfPSx9y3zbaPlh3BjaYE5Fx4%3D"
+            class="link-card assembly-card"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Video de la asamblea, Tarde parte 2"
+          >
+            <div class="link-content">
+              <h2>Tarde parte 2</h2>
+              <p>Ver sesión</p>
+            </div>
+            <svg
+              class="link-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const passwordOverlay = document.getElementById("passwordOverlay");
+        const passwordInput = document.getElementById("passwordInput");
+        const submitPasswordBtn = document.getElementById("submitPassword");
+        const errorMessage = document.getElementById("errorMessage");
+        const mainContent = document.getElementById("mainContent");
+
+        submitPasswordBtn.addEventListener("click", function () {
+          checkPassword();
+        });
+
+        passwordInput.addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            checkPassword();
+          }
+        });
+
+        function checkPassword() {
+          const encodedPassword = "ODYwMg==";
+          const correctPassword = atob(encodedPassword); // Decode Base64
+          if (passwordInput.value === correctPassword) {
+            passwordOverlay.style.opacity = "0";
+            setTimeout(() => {
+              passwordOverlay.style.display = "none";
+              mainContent.style.display = "block";
+            }, 300); // Match CSS transition duration
+          } else {
+            errorMessage.textContent = "Código incorrecto. Intente de nuevo.";
+            errorMessage.classList.add("visible");
+            passwordInput.classList.add("error");
+            setTimeout(() => {
+              errorMessage.classList.remove("visible");
+              passwordInput.classList.remove("error");
+              passwordInput.value = "";
+            }, 1500); // Clear error after 1.5 seconds
+          }
+        }
+      });
+    </script>
+  </body>
 </html>
