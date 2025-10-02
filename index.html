@@ -81,6 +81,30 @@
             gap: 1rem;
         }
 
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .section-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .assembly-section {
+            margin-top: 2.5rem;
+        }
+
+        .assembly-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
         .link-card {
             display: flex;
             align-items: center;
@@ -95,6 +119,11 @@
             box-shadow: 0 1px 2px 0 var(--shadow);
         }
 
+        .link-card:focus-visible {
+            outline: 4px solid rgba(59, 130, 246, 0.4);
+            outline-offset: 4px;
+        }
+
         .link-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px 0 var(--shadow);
@@ -104,6 +133,48 @@
         .link-content h2 {
             font-size: 1.125rem;
             font-weight: 500;
+        }
+
+        .link-content p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-top: 0.35rem;
+        }
+
+        .link-card.assembly-card {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: #FFFFFF;
+            padding: 1.75rem;
+            font-size: 1.125rem;
+        }
+
+        .link-card.assembly-card .link-content h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .link-card.assembly-card .link-content p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        .link-card.assembly-card .link-icon {
+            color: #FFFFFF;
+            width: 1.75rem;
+            height: 1.75rem;
+        }
+
+        .link-card.assembly-card:hover {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+            box-shadow: 0 6px 16px 0 rgba(59, 130, 246, 0.25);
+        }
+
+        .link-card.assembly-card:focus-visible {
+            outline-color: rgba(255, 255, 255, 0.7);
         }
 
         .link-icon {
@@ -134,6 +205,23 @@
             .link-card {
                 padding: 1.25rem;
             }
+
+            .section-title {
+                font-size: 1.35rem;
+            }
+
+            .assembly-links {
+                gap: 1rem;
+            }
+
+            .link-card.assembly-card {
+                padding: 1.5rem;
+                font-size: 1.05rem;
+            }
+
+            .link-card.assembly-card .link-content h2 {
+                font-size: 1.25rem;
+            }
         }
     </style>
 </head>
@@ -157,6 +245,68 @@
                 </svg>
             </a>
         </div>
+
+        <section class="assembly-section" aria-labelledby="assembly-title">
+            <h2 id="assembly-title" class="section-title">Asamblea de circuito</h2>
+            <p class="section-description">Seleccione el video de cada sesión.</p>
+            <div class="assembly-links" role="list">
+                <a role="listitem"
+                    href="https://nuevoshared.blob.core.windows.net/poyiyacontainer/Asamblea%20de%20circuito%20con%20representante%20de%20la%20sucursal%20No%20nos%20avergonzamos%20de%20las%20buenas%20noticias%20(2024-2025)_Ma%C3%B1ana%20(parte%201)_r720P.mp4?sp=r&st=2025-10-02T22:52:31Z&se=2025-10-10T07:07:31Z&spr=https&sv=2024-11-04&sr=b&sig=%2FxOilWN%2F1NSMop%2Fk8KJp31Wdfrn14d6KhtoGucLrST0%3D"
+                    class="link-card assembly-card" target="_blank" rel="noopener noreferrer"
+                    aria-label="Video de la asamblea, Mañana parte 1">
+                    <div class="link-content">
+                        <h2>Mañana parte 1</h2>
+                        <p>Ver sesión</p>
+                    </div>
+                    <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+
+                <a role="listitem"
+                    href="https://nuevoshared.blob.core.windows.net/poyiyacontainer/Asamblea%20de%20circuito%20con%20representante%20de%20la%20sucursal%20No%20nos%20avergonzamos%20de%20las%20buenas%20noticias%20(2024-2025)_Ma%C3%B1ana%20(parte%202)_r720P.mp4?sp=r&st=2025-10-02T22:55:22Z&se=2025-10-10T07:10:22Z&spr=https&sv=2024-11-04&sr=b&sig=QEmJcb9ADq5ubi1Qn5SCk7mLbRryNjwE%2BMUbbVMdhbY%3D"
+                    class="link-card assembly-card" target="_blank" rel="noopener noreferrer"
+                    aria-label="Video de la asamblea, Mañana parte 2">
+                    <div class="link-content">
+                        <h2>Mañana parte 2</h2>
+                        <p>Ver sesión</p>
+                    </div>
+                    <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+
+                <a role="listitem"
+                    href="https://nuevoshared.blob.core.windows.net/poyiyacontainer/Asamblea%20de%20circuito%20con%20representante%20de%20la%20sucursal%20No%20nos%20avergonzamos%20de%20las%20buenas%20noticias%20(2024-2025)_Tarde%20(parte%201)_r720P.mp4?sp=r&st=2025-10-02T22:57:51Z&se=2025-10-10T07:12:51Z&spr=https&sv=2024-11-04&sr=b&sig=g%2BDFPjK5Bhh%2FVWjxK2bRQd%2B1NIp%2ByoCdREx%2FXs%2BfSeI%3D"
+                    class="link-card assembly-card" target="_blank" rel="noopener noreferrer"
+                    aria-label="Video de la asamblea, Tarde parte 1">
+                    <div class="link-content">
+                        <h2>Tarde parte 1</h2>
+                        <p>Ver sesión</p>
+                    </div>
+                    <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+
+                <a role="listitem"
+                    href="https://nuevoshared.blob.core.windows.net/poyiyacontainer/Asamblea%20de%20circuito%20con%20representante%20de%20la%20sucursal%20No%20nos%20avergonzamos%20de%20las%20buenas%20noticias%20(2024-2025)_Tarde%20(parte%202)_r720P.mp4?sp=r&st=2025-10-02T22:57:01Z&se=2025-10-10T07:12:01Z&spr=https&sv=2024-11-04&sr=b&sig=qwiue9HcKEEoTqlcH4izfPSx9y3zbaPlh3BjaYE5Fx4%3D"
+                    class="link-card assembly-card" target="_blank" rel="noopener noreferrer"
+                    aria-label="Video de la asamblea, Tarde parte 2">
+                    <div class="link-content">
+                        <h2>Tarde parte 2</h2>
+                        <p>Ver sesión</p>
+                    </div>
+                    <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+        </section>
     </main>
 </body>
 
