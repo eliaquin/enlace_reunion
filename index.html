@@ -312,20 +312,6 @@
   </head>
 
   <body>
-    <div class="password-overlay" id="passwordOverlay">
-      <div class="password-form-card">
-        <h2>Ingrese el código</h2>
-        <input
-          type="password"
-          id="passwordInput"
-          class="password-input"
-          placeholder="Código"
-        />
-        <p id="errorMessage" class="error-message"></p>
-        <button id="submitPassword" class="password-button">Acceder</button>
-      </div>
-    </div>
-
     <main class="main-container" id="mainContent" style="display: none">
       <div class="title-container">
         <h1 class="main-title">Enlaces</h1>
@@ -477,46 +463,5 @@
         </div>
       </section>
     </main>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const passwordOverlay = document.getElementById("passwordOverlay");
-        const passwordInput = document.getElementById("passwordInput");
-        const submitPasswordBtn = document.getElementById("submitPassword");
-        const errorMessage = document.getElementById("errorMessage");
-        const mainContent = document.getElementById("mainContent");
-
-        submitPasswordBtn.addEventListener("click", function () {
-          checkPassword();
-        });
-
-        passwordInput.addEventListener("keypress", function (e) {
-          if (e.key === "Enter") {
-            checkPassword();
-          }
-        });
-
-        function checkPassword() {
-          const encodedPassword = "ODYwMg==";
-          const correctPassword = atob(encodedPassword); // Decode Base64
-          if (passwordInput.value === correctPassword) {
-            passwordOverlay.style.opacity = "0";
-            setTimeout(() => {
-              passwordOverlay.style.display = "none";
-              mainContent.style.display = "block";
-            }, 300); // Match CSS transition duration
-          } else {
-            errorMessage.textContent = "Código incorrecto. Intente de nuevo.";
-            errorMessage.classList.add("visible");
-            passwordInput.classList.add("error");
-            setTimeout(() => {
-              errorMessage.classList.remove("visible");
-              passwordInput.classList.remove("error");
-              passwordInput.value = "";
-            }, 1500); // Clear error after 1.5 seconds
-          }
-        }
-      });
-    </script>
   </body>
 </html>
