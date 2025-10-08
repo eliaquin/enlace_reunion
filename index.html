@@ -8,20 +8,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
-        --background: #f9fafb;
+        --background: #eef2ff;
         --surface: #ffffff;
-        --primary: #3b82f6;
-        --primary-hover: #2563eb;
-        --text-primary: #1f2937;
-        --text-secondary: #6b7280;
-        --border: #e5e7eb;
-        --shadow: rgba(0, 0, 0, 0.05);
-        --error: #ef4444;
+        --primary: #1d4ed8;
+        --primary-hover: #1e40af;
+        --text-primary: #0f172a;
+        --text-secondary: #334155;
+        --border: #cbd5f5;
+        --shadow: rgba(15, 23, 42, 0.18);
+        --focus: #facc15;
+        --font-scale: 1;
       }
 
       * {
@@ -30,256 +31,182 @@
         box-sizing: border-box;
       }
 
+      html {
+        font-size: calc(19px * var(--font-scale));
+      }
+
       body {
         font-family: "Inter", sans-serif;
         background-color: var(--background);
         color: var(--text-primary);
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         min-height: 100vh;
-        padding: 2rem;
+        padding: clamp(1.5rem, 2vw + 1.5rem, 3.5rem);
+        line-height: 1.75;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        overflow: hidden;
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
       }
 
       .main-container {
         width: 100%;
-        max-width: 560px;
-        animation: fadeIn 0.5s ease-out;
+        max-width: 760px;
+        background-color: var(--surface);
+        border-radius: 1.5rem;
+        border: 2px solid rgba(148, 163, 184, 0.25);
+        box-shadow: 0 24px 46px -32px var(--shadow);
+        padding: clamp(1.75rem, 4vw + 1.25rem, 3rem);
       }
 
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(10px);
-        }
-
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .title-container {
-        text-align: center;
-        margin-bottom: 2.5rem;
-      }
-
-      .main-title {
-        font-size: 2.25rem;
-        font-weight: 600;
-        letter-spacing: -0.025em;
-      }
-
-      .subtitle {
-        font-size: 1.125rem;
-        color: var(--text-secondary);
-        margin-top: 0.5rem;
-      }
-
-      .links-container {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .section-title {
-        font-size: 1.5rem;
-        font-weight: 600;
-        margin-bottom: 0.75rem;
-        letter-spacing: -0.01em;
-      }
-
-      .section-description {
-        font-size: 1rem;
-        color: var(--text-secondary);
-        margin-bottom: 1.5rem;
-        line-height: 1.5;
-      }
-
-      .assembly-section {
-        margin-top: 2.5rem;
-      }
-
+      .links-container,
       .assembly-links {
         display: flex;
         flex-direction: column;
-        gap: 1.25rem;
+        gap: 1.75rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: -0.015em;
+        margin-bottom: 0.75rem;
       }
 
       .link-card {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 1.5rem;
-        background-color: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 0.75rem;
+        gap: 1.5rem;
+        padding: 1.8rem 1.9rem;
+        background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+        border-radius: 1.25rem;
+        border: 3px solid rgba(15, 23, 42, 0.12);
         text-decoration: none;
         color: var(--text-primary);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-        box-shadow: 0 1px 2px 0 var(--shadow);
+        box-shadow: 0 20px 32px -30px var(--shadow);
+        transition: transform 0.2s ease, box-shadow 0.2s ease,
+          border-color 0.2s ease;
       }
 
       .link-card:focus-visible {
-        outline: 4px solid rgba(59, 130, 246, 0.4);
-        outline-offset: 4px;
+        outline: 5px solid var(--focus);
+        outline-offset: 6px;
+      }
+
+      .link-card:not(:focus-visible):active {
+        transform: translateY(0);
       }
 
       .link-card:hover {
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px 0 var(--shadow);
+        box-shadow: 0 28px 40px -34px var(--shadow);
         border-color: var(--primary);
       }
 
       .link-content h2 {
-        font-size: 1.125rem;
-        font-weight: 500;
-      }
-
-      .link-content p {
-        font-size: 0.95rem;
-        color: var(--text-secondary);
-        margin-top: 0.35rem;
-      }
-
-      .link-card.assembly-card {
-        background-color: var(--primary);
-        border-color: var(--primary);
-        color: #ffffff;
-        padding: 1.75rem;
-        font-size: 1.125rem;
-      }
-
-      .link-card.assembly-card .link-content h2 {
-        font-size: 1.35rem;
-        font-weight: 600;
+        font-size: 1.6rem;
+        font-weight: 700;
         letter-spacing: -0.01em;
       }
 
-      .link-card.assembly-card .link-content p {
-        color: rgba(255, 255, 255, 0.9);
-        font-size: 1.05rem;
-        font-weight: 500;
-      }
-
-      .link-card.assembly-card .link-icon {
-        color: #ffffff;
-        width: 1.75rem;
-        height: 1.75rem;
-      }
-
-      .link-card.assembly-card:hover {
-        background-color: var(--primary-hover);
-        border-color: var(--primary-hover);
-        box-shadow: 0 6px 16px 0 rgba(59, 130, 246, 0.25);
-      }
-
-      .link-card.assembly-card:focus-visible {
-        outline-color: rgba(255, 255, 255, 0.7);
+      .link-content p {
+        margin-top: 0.45rem;
+        font-size: 1.2rem;
+        color: var(--text-secondary);
       }
 
       .link-icon {
-        width: 1.5rem;
-        height: 1.5rem;
-        color: var(--text-secondary);
-        transition: color 0.2s ease, transform 0.2s ease;
+        width: 2.6rem;
+        height: 2.6rem;
+        flex-shrink: 0;
+        color: var(--primary);
+        transition: transform 0.2s ease;
       }
 
       .link-card:hover .link-icon {
-        color: var(--primary);
-        transform: translateX(3px);
+        transform: translateX(4px);
       }
 
-      @media (max-width: 640px) {
-        body {
-          padding: 1rem;
+      .link-card.assembly-card {
+        background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%);
+        border-color: transparent;
+        color: #ffffff;
+        box-shadow: 0 28px 46px -30px rgba(30, 64, 175, 0.55);
+      }
+
+      .link-card.assembly-card:hover {
+        border-color: transparent;
+      }
+
+      .link-card.assembly-card .link-icon {
+        color: #fef9c3;
+      }
+
+      .link-card.assembly-card .link-content p {
+        color: #e2e8f0;
+      }
+
+      @media (max-width: 720px) {
+        html {
+          font-size: calc(18px * var(--font-scale));
         }
 
-        .main-title {
-          font-size: 1.875rem;
-        }
-
-        .subtitle {
-          font-size: 1rem;
+        .main-container {
+          padding: clamp(1.5rem, 2vw + 1rem, 2.5rem);
         }
 
         .link-card {
-          padding: 1.25rem;
-        }
-
-        .section-title {
-          font-size: 1.35rem;
-        }
-
-        .assembly-links {
-          gap: 1rem;
-        }
-
-        .link-card.assembly-card {
-          padding: 1.5rem;
-          font-size: 1.05rem;
-        }
-
-        .link-card.assembly-card .link-content h2 {
-          font-size: 1.25rem;
+          padding: 1.6rem;
         }
       }
 
+      @media (max-width: 520px) {
+        body {
+          padding: clamp(1rem, 4vw, 2.5rem);
+        }
+
+        .link-card {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .link-icon {
+          align-self: flex-end;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+          scroll-behavior: auto !important;
+        }
+      }
     </style>
   </head>
 
   <body>
-    <main class="main-container" id="mainContent">
-      <div class="title-container">
-        <h1 class="main-title">Enlaces</h1>
-        <p class="subtitle">Seleccione una opción para continuar</p>
-      </div>
-
-      <div class="links-container">
-        <a
-          href="https://jworg.zoom.us/j/87106216703?pwd=YSt4WFBYMjF0ZEdLSDQrVlRrNVd2UT09"
-          class="link-card assembly-card"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div class="link-content">
-            <h2>Reunión Miércoles y Sábados</h2>
-          </div>
-          <svg
-            class="link-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
-        </a>
-      </div>
-
-      <section class="assembly-section" aria-labelledby="assembly-title">
-        <h2 id="assembly-title" class="section-title">Asamblea de circuito</h2>
-        <p class="section-description">Seleccione el video de cada sesión.</p>
-        <div class="assembly-links" role="list">
+    <main class="main-container" id="mainContent" role="main">
+      <section aria-labelledby="meetings-title">
+        <h2 id="meetings-title" class="section-title">Reuniones en vivo</h2>
+        <div class="links-container" role="list">
           <a
             role="listitem"
-            href="https://nuevoshared.blob.core.windows.net/poyiyacontainer/Asamblea%20de%20circuito%20con%20representante%20de%20la%20sucursal%20No%20nos%20avergonzamos%20de%20las%20buenas%20noticias%20(2024-2025)_Ma%C3%B1ana%20(parte%201)_r720P.mp4?sp=r&st=2025-10-02T22:52:31Z&se=2025-10-10T07:07:31Z&spr=https&sv=2024-11-04&sr=b&sig=%2FxOilWN%2F1NSMop%2Fk8KJp31Wdfrn14d6KhtoGucLrST0%3D"
+            href="https://jworg.zoom.us/j/87106216703?pwd=YSt4WFBYMjF0ZEdLSDQrVlRrNVd2UT09"
             class="link-card assembly-card"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Video de la asamblea, Mañana parte 1"
+            aria-label="Abrir la reunión de los miércoles y sábados en Zoom"
           >
             <div class="link-content">
-              <h2>Mañana parte 1</h2>
-              <p>Ver sesión</p>
+              <h2>Reunión miércoles y sábado</h2>
+              <p>Entrar a la reunión por Zoom</p>
             </div>
             <svg
               class="link-icon"
@@ -288,6 +215,43 @@
               viewBox="0 0 24 24"
               stroke-width="2"
               stroke="currentColor"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <section class="assembly-section" aria-labelledby="assembly-title">
+        <h2 id="assembly-title" class="section-title">Asamblea de circuito</h2>
+        <div class="assembly-links" role="list">
+          <a
+            role="listitem"
+            href="https://nuevoshared.blob.core.windows.net/poyiyacontainer/Asamblea%20de%20circuito%20con%20representante%20de%20la%20sucursal%20No%20nos%20avergonzamos%20de%20las%20buenas%20noticias%20(2024-2025)_Ma%C3%B1ana%20(parte%201)_r720P.mp4?sp=r&st=2025-10-02T22:52:31Z&se=2025-10-10T07:07:31Z&spr=https&sv=2024-11-04&sr=b&sig=%2FxOilWN%2F1NSMop%2Fk8KJp31Wdfrn14d6KhtoGucLrST0%3D"
+            class="link-card assembly-card"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Ver el video de la asamblea: Mañana parte 1"
+          >
+            <div class="link-content">
+              <h2>Mañana · Parte 1</h2>
+              <p>Reproducir video de esta sesión</p>
+            </div>
+            <svg
+              class="link-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              aria-hidden="true"
+              focusable="false"
             >
               <path
                 stroke-linecap="round"
@@ -303,11 +267,11 @@
             class="link-card assembly-card"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Video de la asamblea, Mañana parte 2"
+            aria-label="Ver el video de la asamblea: Mañana parte 2"
           >
             <div class="link-content">
-              <h2>Mañana parte 2</h2>
-              <p>Ver sesión</p>
+              <h2>Mañana · Parte 2</h2>
+              <p>Reproducir video de esta sesión</p>
             </div>
             <svg
               class="link-icon"
@@ -316,6 +280,8 @@
               viewBox="0 0 24 24"
               stroke-width="2"
               stroke="currentColor"
+              aria-hidden="true"
+              focusable="false"
             >
               <path
                 stroke-linecap="round"
@@ -331,11 +297,11 @@
             class="link-card assembly-card"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Video de la asamblea, Tarde parte 1"
+            aria-label="Ver el video de la asamblea: Tarde parte 1"
           >
             <div class="link-content">
-              <h2>Tarde parte 1</h2>
-              <p>Ver sesión</p>
+              <h2>Tarde · Parte 1</h2>
+              <p>Reproducir video de esta sesión</p>
             </div>
             <svg
               class="link-icon"
@@ -344,6 +310,8 @@
               viewBox="0 0 24 24"
               stroke-width="2"
               stroke="currentColor"
+              aria-hidden="true"
+              focusable="false"
             >
               <path
                 stroke-linecap="round"
@@ -359,11 +327,11 @@
             class="link-card assembly-card"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Video de la asamblea, Tarde parte 2"
+            aria-label="Ver el video de la asamblea: Tarde parte 2"
           >
             <div class="link-content">
-              <h2>Tarde parte 2</h2>
-              <p>Ver sesión</p>
+              <h2>Tarde · Parte 2</h2>
+              <p>Reproducir video de esta sesión</p>
             </div>
             <svg
               class="link-icon"
@@ -372,6 +340,8 @@
               viewBox="0 0 24 24"
               stroke-width="2"
               stroke="currentColor"
+              aria-hidden="true"
+              focusable="false"
             >
               <path
                 stroke-linecap="round"
@@ -382,6 +352,8 @@
           </a>
         </div>
       </section>
+
     </main>
+
   </body>
 </html>
